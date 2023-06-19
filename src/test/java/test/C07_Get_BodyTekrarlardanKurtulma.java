@@ -59,11 +59,11 @@ public class C07_Get_BodyTekrarlardanKurtulma {
                 .assertThat()
                 .statusCode(200)
                 .contentType("application/json; charset=utf-8")
-                .body("firstname", equalTo("Suzan"),
-                        "lastname",equalTo("Wilson"),
-                        "totalprice",equalTo(613),
+                .body("firstname", equalTo("Mary"),
+                        "lastname",equalTo("Smith"),
+                        "totalprice",equalTo(814),
                         "depositpaid",equalTo(false),
-                        "additionalneeds",equalTo("Breakfast"));
+                        "additionalneeds",equalTo(null));
 
 
     }
