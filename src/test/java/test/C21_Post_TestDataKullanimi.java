@@ -2,12 +2,15 @@ package test;
 
 import baseUrl.HerrokuAppBaseUrl;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.JSONObject;
+import org.junit.Assert;
 import org.junit.Test;
 import testData.TestDataHerokuapp;
 
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
 
 public class C21_Post_TestDataKullanimi extends HerrokuAppBaseUrl {
 /*
@@ -69,6 +72,21 @@ public class C21_Post_TestDataKullanimi extends HerrokuAppBaseUrl {
                         .when()
                                 .body(reqBody.toString())
                                 .post("/{pp1}");
+        response.prettyPrint();
+
+        //4- Assertion
+
+        JsonPath respJP=response.jsonPath();
+        assertEquals(testDataHerokuapp.basariliStatusCoe,response.getStatusCode());
+        assertEquals(expData.getJSONObject("booking").get("firstname"),respJP.get("booking.firstname"));
+        assertEquals(expData.getJSONObject("booking").get("lastname"),respJP.get("booking.lastname"));
+        assertEquals(expData.getJSONObject("booking").get("totalprice"),respJP.get("booking.totalprice"));
+        assertEquals(expData.getJSONObject("booking").get("depositpaid"),respJP.get("booking.depositpaid"));
+        assertEquals(expData.getJSONObject("booking").get("additionalneeds"),respJP.get("booking.additionalneeds"));
+        assertEquals(expData.getJSONObject("booking").getJSONObject("bookingdates").get("checkin"),respJP.get("booking.bookingdates.checkin"));
+        assertEquals(expData.getJSONObject("booking").getJSONObject("bookingdates").get("checkout"),respJP.get("booking.bookingdates.checkout"));
+
+
 
 
 

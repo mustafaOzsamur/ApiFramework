@@ -3,6 +3,8 @@ package testData;
 import org.json.JSONObject;
 
 public class TestDataHerokuapp {
+
+    public int basariliStatusCoe=200;
     /*
     Request body
     {
