@@ -1,4 +1,4 @@
-package test.SelberUben;
+package SelberUben;
 
 import org.json.JSONObject;
 import org.junit.Test;

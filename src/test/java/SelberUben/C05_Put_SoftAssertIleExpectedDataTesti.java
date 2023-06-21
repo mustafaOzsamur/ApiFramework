@@ -1,4 +1,4 @@
-package test.SelberUben;
+package SelberUben;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;

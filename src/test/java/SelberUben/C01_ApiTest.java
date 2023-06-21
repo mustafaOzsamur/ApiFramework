@@ -1,4 +1,4 @@
-package test.SelberUben;
+package SelberUben;
 
 import io.restassured.response.Response;
 import org.junit.Test;
